@@ -1,0 +1,12 @@
+version: "3.9"
+
+services:
+  application:
+    build: ./
+    ports:
+      - 8080:8080
+    volumes:
+      - ./blogs/migrations:/opt/app/blogs/migrations
+      - ./app:/opt/app/app
+volumes:
+  my-db:
