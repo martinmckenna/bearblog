@@ -15,7 +15,13 @@ from django.contrib.gis.geoip2 import GeoIP2
 
 
 def root(subdomain=''):
-    domain = Site.objects.get_current().domain
+    domain = ''
+    
+    try:
+        domain = Site.objects.get_current().domain
+    except Exception as e:
+        pass
+    
     if subdomain == '':
         return f"{domain}"
     else:
